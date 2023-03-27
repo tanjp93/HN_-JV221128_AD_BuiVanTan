@@ -1,6 +1,7 @@
 package Exam_Advance_1.ra.bussinessImp;
 
 import Exam_Advance_1.ra.bussiness.IShop;
+import static Exam_Advance_1.ra.run.ProductManagement.catalogList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -97,7 +98,6 @@ public class Product implements IShop, Comparable<Product> {
     @Override
     public void inputData() {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Catalog> listCatalogs = new ArrayList<>();
 
         System.out.print("Nhap ma san pham: ");
         productId = Integer.parseInt(scanner.nextLine());
@@ -118,7 +118,7 @@ public class Product implements IShop, Comparable<Product> {
         exportPrice = importPrice * RATE;
         System.out.print("Nhap danh muc san pham: ");
         int catalogId = Integer.parseInt(scanner.nextLine());
-        for (Catalog catalogs : listCatalogs
+        for (Catalog catalogs : catalogList
         ) {
             if (catalogs.getCatalogId() == catalogId) {
                 this.catalog = catalogs;
@@ -145,5 +145,19 @@ public class Product implements IShop, Comparable<Product> {
     @Override
     public int compareTo(Product o) {
         return (int) (this.exportPrice - o.exportPrice);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", title='" + title + '\'' +
+                ", descriptions='" + descriptions + '\'' +
+                ", catalog=" + catalog +
+                ", importPrice=" + importPrice +
+                ", exportPrice=" + exportPrice +
+                ", productStatus=" + productStatus +
+                '}';
     }
 }

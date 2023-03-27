@@ -93,4 +93,15 @@ public class Catalog implements IShop {
     public void setCatalogStatus(Boolean catalogStatus) {
         this.catalogStatus = catalogStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "catalogId=" + catalogId +
+                ", catalogName='" + catalogName + '\'' +
+                ", priority=" + priority +
+                ", descriptions='" + descriptions + '\'' +
+                ", catalogStatus=" + catalogStatus +
+                '}';
+    }
 }

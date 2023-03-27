@@ -9,11 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductManagement {
+    public static ArrayList<Catalog> catalogList = new ArrayList<>();
+    public static ArrayList<Product> listProducts = new ArrayList<>();
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        ArrayList<Catalog> catalogList = new ArrayList<>();
-        ArrayList<Product> listProducts = new ArrayList<>();
         int choice;
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("****************JAVA-HACKATHON-05-ADVANCE-2-MENU***************\n");
             System.out.println("1. Nhập số danh mục sản phẩm và nhập thông tin các danh mục");
@@ -39,7 +40,7 @@ public class ProductManagement {
                     break;
                 case 4:
                     System.out.println("Nhập vào sản phẩm banj muốn tìm kiếm");
-                    String inputProductName = scanner.next();
+                    String inputProductName = scanner.nextLine();
                     List<Product> listSearch = new ArrayList<>();
                     for (Product searchPro : listProducts) {
                         if (searchPro.getProductName().contains(inputProductName)) {
@@ -47,8 +48,7 @@ public class ProductManagement {
                         }
                     }
                     System.out.println("Danh sách tìm kiếm : ");
-                    for (Product list : listSearch
-                    ) {
+                    for (Product list : listSearch ) {
                         list.displayData();
                     }
                     break;
@@ -56,18 +56,16 @@ public class ProductManagement {
                     System.exit(0);
                     break;
                 case 6:
-                    for (Catalog catalog :catalogList ) {
-                        System.out.print(catalog+" ");
+                    for (Catalog catalog : catalogList) {
+                        System.out.print(catalog + " ");
                     }
                     System.out.println("--------------");
-                    for (Product product :listProducts ) {
-                        System.out.print(product+" ");
+                    for (Product product : listProducts) {
+                        System.out.print(product + " ");
                     }
                     break;
             }
         }
-
-
     }
 
     private static void createProduct(ArrayList<Product> listProducts, Scanner scanner) {
