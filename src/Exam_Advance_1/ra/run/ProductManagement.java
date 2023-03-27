@@ -21,6 +21,7 @@ public class ProductManagement {
             System.out.println("3. Sắp xếp sản phẩm theo giá sản phẩm tăng dần (Comparable/Comparator) ");
             System.out.println("4. Tìm kiếm sản phẩm theo tên danh mục sản phẩm ");
             System.out.println("5. Thoát ");
+            System.out.println("6. danh sach thu muc va san pham ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -38,21 +39,30 @@ public class ProductManagement {
                     break;
                 case 4:
                     System.out.println("Nhập vào sản phẩm banj muốn tìm kiếm");
-                    String inputProductName=scanner.next();
+                    String inputProductName = scanner.next();
                     List<Product> listSearch = new ArrayList<>();
-                    for (Product searchPro : listProducts ) {
-                        if (searchPro.getProductName().contains(inputProductName)){
+                    for (Product searchPro : listProducts) {
+                        if (searchPro.getProductName().contains(inputProductName)) {
                             listSearch.add(searchPro);
                         }
                     }
                     System.out.println("Danh sách tìm kiếm : ");
-                    for (Product list:listSearch
+                    for (Product list : listSearch
                     ) {
                         list.displayData();
                     }
                     break;
                 case 5:
                     System.exit(0);
+                    break;
+                case 6:
+                    for (Catalog catalog :catalogList ) {
+                        System.out.print(catalog+" ");
+                    }
+                    System.out.println("--------------");
+                    for (Product product :listProducts ) {
+                        System.out.print(product+" ");
+                    }
                     break;
             }
         }

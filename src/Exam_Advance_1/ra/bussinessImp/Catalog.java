@@ -34,7 +34,7 @@ public class Catalog implements IShop {
 
         System.out.print("Nhập độ ưu tiên: ");
         this.priority = Integer.parseInt(scanner.nextLine()) ;
-        scanner.nextLine();
+
 
         System.out.print("Nhập mô tả danh mục: ");
         this.descriptions = scanner.nextLine();
